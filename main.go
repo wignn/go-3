@@ -6,14 +6,6 @@ import (
 	_ "github.com/lib/pq"
 )
 
-type User struct {
-	ID   int    `json:"id"`
-	Name string `json:"name"`
-	IComplated bool `json:"isComplated"`
-}
-
-
-
 func main() {
 	app := fiber.New()
 	app.Get("/", helloWorld)
