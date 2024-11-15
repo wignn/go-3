@@ -2,22 +2,18 @@ package service
 
 import (
 	"fmt"
+	"sederhana/dto"
 	"github.com/gofiber/fiber/v2"
 	_ "github.com/lib/pq"
 )
 
-type User struct {
-	ID   int    `json:"id"`
-	Name string `json:"name"`
-	IComplated bool `json:"isComplated"`
-}
 
 
-var users []User
+var users []dto.User
 
 
 func Create(c *fiber.Ctx) error {
-	user := &User{}
+	user := &dto.User{}
 
 	err := c.BodyParser(user)
 	if err != nil {
@@ -37,7 +33,7 @@ func Create(c *fiber.Ctx) error {
 
 
 func Update(c *fiber.Ctx) error {
-	user := &User{}
+	user := &dto.User{}
 	id := c.Params("id")
 	err := c.BodyParser(user)
 	fmt.Print(user)
